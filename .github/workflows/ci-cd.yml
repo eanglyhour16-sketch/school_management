@@ -24,10 +24,10 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
@@ -37,6 +37,7 @@ jobs:
 
       - name: Run unit and API tests
         run: npm test
+
   docker:
     name: Build & Push Docker Image
     needs: test
@@ -46,7 +47,8 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
+
       - name: Check Docker secrets
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
@@ -63,16 +65,19 @@ jobs:
           fi
 
           echo "Docker secrets are available"
+
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
       - name: Build image
         run: |
           docker build \
             -t ${{ secrets.DOCKER_USERNAME }}/grade-api:latest .
+
       - name: Push image
         run: |
           docker push \
-            ${{ secrets.DOCKER_USERNAME }}/grade-api:latest
+            -t ${{ secrets.DOCKER_USERNAME }}/grade-api:latest
