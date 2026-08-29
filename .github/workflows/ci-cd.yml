@@ -79,5 +79,4 @@ jobs:
 
       - name: Push image
         run: |
-          docker push \
-            -t ${{ secrets.DOCKER_USERNAME }}/grade-api:latest
+          docker push ${{ secrets.DOCKER_USERNAME }}/grade-api:latest
