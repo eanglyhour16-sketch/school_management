@@ -14,6 +14,12 @@ app.get("/health", (req, res) => {
     message: "API is running"
   });
 });
+app.get("/learn", (req, res) => {
+  res.json({
+    success: true,
+    message: "learn api"
+  });
+});
 
 app.use("/api/grades", gradeRoutes);
 
