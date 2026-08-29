@@ -15,7 +15,6 @@ jobs:
 
   test:
     name: Test
-
     runs-on: ubuntu-latest
 
     services:
@@ -25,12 +24,11 @@ jobs:
           - 6379:6379
 
     steps:
-
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v5
         with:
           node-version: 22
           cache: npm
@@ -41,10 +39,8 @@ jobs:
       - name: Run unit and API tests
         run: npm test
 
-
   docker:
     name: Build Docker Image
-
     needs: test
 
     if: github.ref == 'refs/heads/main'
@@ -52,9 +48,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Login to Docker Hub
         uses: docker/login-action@v3
