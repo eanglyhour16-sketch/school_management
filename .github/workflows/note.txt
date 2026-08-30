@@ -69,3 +69,5 @@ PS D:\y3\project\school_management>
 https://dashboard.render.com/web/srv-da8613h42hec73bvfa7g/deploys/dep-da871mu7bikc73bu1730?r=2026-08-27%4017%3A15%3A11%7E2026-08-27%4017%3A17%3A46
 https://dashboard.render.com/r/red-da86vo142hec73c1s0c0
 https://cloud.mongodb.com/v2/6a906650e9ddbe150ec3541a#/clusters
+
+npm install swagger-ui-express swagger-jsdoc

@@ -12,7 +12,6 @@ const { connectRedis } = require("./config/redis");
 const startServer = async () => {
   await connectDB();
   await connectRedis();
-
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`API running on port ${PORT}`);
   });
