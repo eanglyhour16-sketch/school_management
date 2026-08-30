@@ -5,6 +5,8 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
+.github/workflows/note.txt
+
 # Environment variables
 .env
 .env.local
